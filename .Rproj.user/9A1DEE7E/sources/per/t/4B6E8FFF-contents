@@ -1,0 +1,51 @@
+
+
+# Midterm Fall 2020
+
+source('shared_functions.R')
+
+# Question 1.  Page 88, Exercise 9
+(Q1dat = matrix(c(2991L, 112L, 2244L, 115849L), nrow = 2L, dimnames = list(
+  'CancerReported(A)' = c('Yes', 'No'),
+  'CancerInRegistry(B)' = c('Yes', 'No')
+)))
+addmargins(Q1dat)
+# (a)-(e)
+prob_from_table(Q1dat)
+# Answers
+# 4.3% for (a)
+# 2.6% for (b)
+# 2.5% for (c)
+# 96.4% for (d)
+# 57.1% for (e)
+# (f)-(g): Test is A, Disease is B 
+predictive_value(Q1dat)
+# 96.4% for (f)
+# 98.1% for (g)
+
+
+# Question 2.  Page 130, Exercise 15
+dbinom(x = 7L, size = 10L, prob = .35) # 2.1% (a)
+pbinom(q = 5L, size = 10L, prob = .35, lower.tail = FALSE) # 9.5% (b)
+dbinom(x = 0L, size = 10L, prob = .35) # 1.3% (c)
+pbinom(q = 6L, size = 10L, prob = .35) - pbinom(q = 2L, size = 10L, prob = .35) # 71.2% (d)
+
+
+
+# Question 3.  Page 132, Exercise 26
+# X~N(mu, sigma); P(mu - k*sigma <= X <= mu + k*sigma) = .754
+# <=> P(-k <= Z <= k) = .754; where Z ~ N(0,1)
+(Q3ans = qnorm((1-.754)/2, lower.tail = FALSE)) # 1.16 
+pnorm(Q3ans) - pnorm(-Q3ans) # verified
+
+
+
+# Question 4.  Page 158, Exercise 11
+sample_pnorm(25, mean = 23.1, sd = 3.7, n = 45L, lower.tail = FALSE) # 0.000286
+
+
+# Question 5. Page 171, Exercise 6.2.1
+CI_z(xbar = 90, sd = 10, n = 49L, level = .9) # 87.65 92.35
+CI_z(xbar = 90, sd = 10, n = 49L, level = .95) # 87.20 92.80
+CI_z(xbar = 90, sd = 10, n = 49L, level = .99) # 86.32 93.68
+

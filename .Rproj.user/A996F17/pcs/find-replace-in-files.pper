@@ -1,0 +1,13 @@
+{
+    "dialog-state": {
+        "query": "'nlme'",
+        "path": "~/Dropbox/Document/Papers/GC660/GC660 R Lab",
+        "regex": false,
+        "caseSensitive": false,
+        "filePatterns": [],
+        "excludeFilePatterns": [],
+        "resultsCount": 0,
+        "errorCount": 0,
+        "replaceErrors": ""
+    }
+}

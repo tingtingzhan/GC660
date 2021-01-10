@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1568323312929.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "407352683",
+    "id" : "ED703819",
+    "lastKnownWriteTime" : 1568329268,
+    "last_content_update" : 1568329268,
+    "path" : "//Mac/Dropbox/Document/Papers/GC660/GC660 R Lab/chp1&2 Examples.R",
+    "project_path" : "chp1&2 Examples.R",
+    "properties" : {
+        "cursorPosition" : "20,33",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

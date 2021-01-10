@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1568949300035.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "650832958",
+    "id" : "9BE23717",
+    "lastKnownWriteTime" : 1568931114,
+    "last_content_update" : 1568931114,
+    "path" : "~/Documents/Dropbox/Document/Papers/GC660/GC660 R Lab/02 Probability.R",
+    "project_path" : "02 Probability.R",
+    "properties" : {
+        "cursorPosition" : "26,27",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

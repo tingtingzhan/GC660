@@ -1,0 +1,79 @@
+# Sapanna Chantarawong 
+
+# Midterm Fall 2020
+
+source('shared_functions.R')
+
+# Question 1.  Page 88, Exercise 9
+Q1dat = matrix(c(2991L, 112L, 2244L, 115849L), nrow = 2L, dimnames = list(
+  CancerReported = c('Yes', 'No'),
+  CancerInRegistry = c('Yes', 'No')
+))
+addmargins(Q1dat, margin = 1L)
+addmargins(Q1dat, margin = 2L)
+
+# (a) Let A be the event of reporting breast cancer in CA teachers Study. FInd the probability of A in this study 
+5235/121196 
+  # 5235/121196 = 0.04319 or 4.319%
+
+# (b)Let B be the event of having breast cancer confirmed in CA cancer registry. FInd the probability of B in this study 
+3103/121196 
+  # 3103/121196 = 0.02560316 or 2.56%
+
+# (c)Find(A and B)
+2991/121196
+  # 2991/121196 = 0.02467903 or 2.47% 
+
+# (d) Find (A|B) "given"
+2991/3103
+  # 2991/(3103) = 0.9639059 or 96.39% 
+
+# (e) find P(B|A)
+2991/(5235) 
+  # 2991/(5235) = 0.5713467 or 57.13%
+
+# (f) sensitivity 
+2991/3103
+  # 2991/3103 =  0.9639059 or 96.39% 
+
+# (g) specificity 
+115849/118093
+  # 115849/118093 = 0.980998 or 98.1% 
+
+
+# Question 2.  Page 130, Exercise 15
+# (a)
+dbinom(x = 7L, size = 10L, prob = .35)
+  # answer  to (a) is 0.02120302 
+# (b)
+(pU = pbinom(q = 5L, size = 10L, prob = .35, lower.tail = FALSE))
+  # answer to (b) is 0.09493408
+# (c)
+dbinom(x = 0L, size = 10L, prob = .35)
+  #answer to (c) is 0.01346274
+# (d)
+pbinom(q = 6L, size = 10L, prob = .35) - pbinom( q= 2L, size = 10L, prob= .35)
+  # answer to (d) is 0.7123683 
+
+
+# Question 3.  Page 132, Exercise 26
+
+qnorm (p = (1-.754)/2, lower.tail = FALSE) 
+  #answer is 1.16012 
+
+# Question 4.  Page 158, Exercise 11
+sample_pnorm(35, mean = 23.1, sd = 3.7, n = 45L) - sample_pnorm(25, mean = 23.1, sd = 3.7, n = 45L)
+  #answer is 0.0002857903 
+
+
+# Question 5. Page 171, Exercise 6.2.1
+
+CI_z(xbar = 90, n = 45L, sd = 10, level = .90)
+  #answer is 87.548, 92.452
+
+CI_z(xbar = 90, n = 45L, sd = 10, level = .95)
+  # answer is 87.07826, 92.92174
+
+CI_z(xbar = 90, n = 45L, sd = 10, level = .99)
+  # answer is 86.16018, 93.83982
+#the three confidence intervals do not have equal width because the confidence levels varies between each. Between all three, 99% will have the widest confidence interval than 95% or the 90%. The wider the interval the more confident it is that the interval contains the true mean. 

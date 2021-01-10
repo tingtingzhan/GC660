@@ -1,0 +1,69 @@
+
+
+# Midterm Fall 2020
+
+source('shared_functions.R')
+
+# Question 1.  Page 88, Exercise 9
+Q1dat = matrix(c(2991L, 112L, 2244L, 115849L), nrow = 2L, dimnames = list(
+  CancerReported = c('Yes', 'No'),
+  CancerInRegistry = c('Yes', 'No')
+))
+addmargins(Q1dat)
+# (a) The probability of (a) is 4.3%
+prob_from_table(Q1dat)
+addmargins(Q1dat)/sum(Q1dat)
+sprintf(fmt = '%.1f%%', addmargins(Q1dat)/ sum(Q1dat) * 100)
+# (b) The probability of (b) is 2.56%
+prob_from_table(Q1dat)
+addmargins(Q1dat)/sum(Q1dat)
+sprintf(fmt = '%.1f%%', addmargins(Q1dat)/ sum(Q1dat) * 100)
+# (c) THe probability is 2.467
+prob_from_table(Q1dat)
+# (d) The probability is 96.4
+prob_from_table(Q1dat)
+addmargins(Q1dat, margin = 2L)
+y_cond1 <- addmargins(Q1dat, margin = 2L)
+y_cond1[] <- sprintf(fmt = '%.1f%%', addmargins(Q1dat, margin = 2L) / rowSums(Q1dat) * 100)
+print(y_cond1, quote = FALSE, right = TRUE)
+# (e) The probability is 57.1%
+prob_from_table(Q1dat)
+# (f) 96.39% - Sensitivity
+(Q1dat = matrix(c(2991L, 112L, 2244L, 115849L), nrow = 2L, dimnames = list(
+  CancerReported = c('Yes', 'No'),
+  CancerInRegistry = c('Yes', 'No'))))
+Sensitivityis (2991/ (2991 + 112))
+# (g) 98.09 - Specificity
+115849/(115849 + 2244)
+
+
+# Question 2.  Page 130, Exercise 15
+# (a) 0.0212
+dbinom(x = 7L, size = 10L, prob = .35)
+# (b) 0.0949
+(pU = pbinom(q = 5L, size = 10L, prob = .35, lower.tail = FALSE))
+# (c) 0.0135
+(pL = pbinom(q = 0L, size = 10L, prob = .35, lower.tail = TRUE))
+# (d) 0.9739-0.2616 = 0.7123 (subtracting first answer from second answer)
+(pL = pbinom(q = 2L, size = 10L, prob = .35, lower.tail = TRUE))
+(pL = pbinom(q = 6L, size = 10L, prob = .35, lower.tail = TRUE))
+
+# Question 3.  Page 132, Exercise 26: Z = 1.16 and -1.16
+P(Z)- P(-Z) = 0.754
+P(-Z) = 1 - P(Z)
+so P(Z) - (1- P(Z)) is the same as 2P(Z)-1= 0.754
+P(Z)= 0.877 so to find the Z you do:
+qnorm(0.877) 
+1.16= (X-U)/S or 1.16S = X-U 
+
+# Question 4.  Page 158, Exercise 11 (0.0002857)
+sample_pnorm(25, mean = 23.1, sd = 3.7, n = 45L, lower.tail = FALSE)
+
+# Question 5. Page 171, Exercise 6.2.1
+CI_z(mean = 90, n = 49L, sd = 10, level = .90)
+CI_z(mean = 90, n = 49L, sd = 10, level = .95)
+CI_z(mean = 90, n = 49L, sd = 10, level = .99)
+The confidence interval 99 is wider than the confidence interval of 95 or 90 because 
+in order to havea higher percentage (to be more confident) that the 
+true value falls within the interval, you have to allow more potential
+values within the interval. 

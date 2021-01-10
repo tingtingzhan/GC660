@@ -1,0 +1,30 @@
+
+source('shared_functions.R')
+
+# Page 69, Example 3.4.1
+(datA_341 = matrix(c(28L, 19L, 41L, 53L, 35L, 38L, 44L, 60L), ncol = 2L, 
+                   dimnames = list(FamilyHx = c('none', 'Bipolar', 'Unipolar', 'UniBipolar'), 
+                                   Onset = c('Early', 'Late'))))
+addmargins(datA_341)
+prob_from_table(datA_341)
+
+# Boolean operators
+x1 = c(TRUE, FALSE, TRUE, NA)
+x2 = c(TRUE, TRUE, NA, FALSE)
+x1 | x2
+?`|`
+x1 & x2
+TRUE & TRUE
+TRUE & FALSE
+TRUE | FALSE
+
+# Page 81, Example 3.5.1
+(datA_315 = matrix(c(436L, 14L, 5L, 495L), nrow = 2L, 
+                   dimnames = list(Test = c('Positive', 'Negative'), 
+                                   Alzheimer = c('Yes', 'No'))))
+predictive_value(datA_315, prevalence = .113)
+
+# our hypothetical examples
+predictive_value(sens = .95, spec = .995, prevalence = .001)
+predictive_value(sens = .95, spec = .995, prevalence = .95)
+

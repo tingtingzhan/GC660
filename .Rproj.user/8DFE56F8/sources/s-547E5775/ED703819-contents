@@ -1,0 +1,90 @@
+
+
+# Windows
+# (Make .R files open in RStudio: Right click -> Open with -> RStudio)
+# Ctrl + Shift + N: create a new .R file
+# Ctrl + Enter: send a line to Console
+# Ctrl + L: clear Console
+
+# Mac
+# (Make .R files open in RStudio: Secondary Click -> Get Info -> Open with: RStudio -> Change All)
+# Command + Shift + N: create a new .R file
+# Command + Enter: send a line to Console
+# Ctrl + L: clear Console
+
+# RStudio Shortcuts (Windows & Mac)
+# https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts
+
+
+# Simple Random Sampling
+# 10th ed, P8, Example 1.4.1
+dat_141 = read.csv('data/EXA_C01_S04_01.csv')
+?read.csv
+class(dat_141)
+dim(dat_141)
+nrow(dat_141)
+ncol(dat_141)
+head(dat_141)
+tail(dat_141)
+names(dat_141) # faster
+colnames(dat_141)
+dat_141$SUBJ
+dat_141$AGE
+
+id = sample(seq_len(nrow(dat_141)), size = 10L, replace = FALSE)
+?sample
+dat_141[id, ]
+
+
+# 10th ed, P25, Example 2.3.1
+age_141 = dat_141$AGE
+class(age_141)
+ageC = cut(age_141, breaks = c(30,40,50,60,70,80,90), 
+            include.lowest = TRUE, right = FALSE)
+table(ageC)
+class(ageC)
+hist(age_141)
+
+# 10th ed, P39, Example 2.4.2-2.4.6; 2.5.1-2.5.3
+mean(age_141)
+median(age_141)
+
+#library(pracma)
+#Mode(age_141)
+
+pracma::Mode(age_141)
+e1071::skewness(age_141)
+range(age_141)
+var(age_141)
+sd(age_141)
+
+source('shared_functions.R')
+
+coef_variation(age_141)
+quantile(age_141, probs = c(0, .25, .5, .75, 1))
+e1071::kurtosis(age_141)
+
+
+# 10th ed, P50, Example 2.5.5
+dat_255 = read.csv('data/EXA_C02_S05_05.csv')
+head(dat_255)
+boxplot(dat_255$GRF)
+
+
+# 10th ed, P31, Exercise 2.3.2 
+dat_e232 = read.csv('data/EXR_C02_S03_02.csv')
+head(dat_e232)
+sizes_e232 = dat_e232$sizes
+n_e232 = length(sizes_e232)
+hist(sizes_e232)
+
+sizes_e232_f = cut(sizes_e232, breaks = seq(0, 30, by = 5))
+table(sizes_e232_f)
+table(sizes_e232_f) / n_e232
+cumsum(table(sizes_e232_f))
+cumsum(table(sizes_e232_f)) / n_e232
+
+table(sizes_e232 >= 10 & sizes_e232 <= 14.9) / n_e232
+table(sizes_e232 < 20) / n_e232
+table(sizes_e232 >= 25) / n_e232
+table(sizes_e232 < 10 | sizes_e232 >= 19.95) / n_e232
